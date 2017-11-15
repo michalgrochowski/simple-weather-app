@@ -4,4 +4,4 @@ Simple weather app that uses data from OpenWeatherMap API (https://openweatherma
 
 Made with HTML5, Sass and JavaScript (some ES6 features including fetch())
 
-Live: https://michalgrochowski.github.io/simple-weather-app/app/
+Live: https://michalgrochowski.github.io/simple-weather-app/dist
