@@ -6,10 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- CSS files -->
 	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/..."> 
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 	<!-- Page info -->
-	<title>...</title>
+	<title>Simple weather app</title>
 	<meta name="description" content="...">
 	<meta name="keywords" content="...">
 	<meta name="author" content="Michał Grochowski">
@@ -22,36 +22,42 @@
 <body id="body" class=""> 
 	<header class="header">
 		<nav class="nav">
-			<img class="nav__logo" src="img/..." alt="">
 			<ul class="nav__list">
-				<li class="nav__item"><a class="nav__link" href="..." title="">...</a></li>
-				<li class="nav__item"><a class="nav__link" href="..." title="">...</a></li>
-				<li class="nav__item"><a class="nav__link" href="..." title="">...</a></li>
-				<li class="nav__item"><a class="nav__link" href="..." title="">...</a></li>
-				<li class="nav__item"><a class="nav__link" href="..." title="">...</a></li>
+				<li class="nav__item nav__item--title">
+					<h1 class="nav__title">Sprawdź pogodę</h1>
+				</li>
+				<li class="nav__item">
+					<form class="search-form">
+						<label class="search-form__label" for="cityInput">Wpisz miasto:</label>
+						<input class="search-form__input" type="text" id="cityInput" placeholder="Wpisz miasto">
+						<input class="search-form__button" type="button" id="cityButton" value="Szukaj">
+					</form>
+				</li>
+				<li class="nav__item">
+					<button class="nav__button">Znajdź</button>
+				</li>
+				<li class="nav__item">
+					<button class="nav__button">Pomoc</button>
+				</li>
 			</ul>
 		</nav> 
 	</header>
 	<main class="container">
-		<h1 class="container__title">...</h1>
 		<section id="" class="section">  
-			<h2 class="section__title">...</h2>
-			
+			<h2 class="section__title">Pogoda w twoim mieście to:</h2>
+			<div class="weather">
+				<p class="weather__data" id="temperature">-</p>
+				<p class="weather__data" id="humidity">-</p>
+				<p class="weather__data" id="wind">-</p>
+				<p class="weather__data" id="pressure">-</p>
+				<p class="weather__data" id="rain">-</p>
+				<p class="weather__data" id="clouds">-</p>
+			</div>
 		</section>   
-		<section id="" class="section">  
-			<h2 class="section__title">...</h2>
-			
-		</section> 
-		<section id="" class="section">  
-			<h2 class="section__title">...</h2>
-				
-		</section>
-		<section id="" class="section">  
-			<h2 class="section__title">...</h2>
-
-		</section>
 		<footer id="footer" class="footer">
-
+			<p class="footer__copyright">
+				© 2017 Michał Grochowski - <a class="footer__link dark-theme--link" href="http://dobrywebdev.pl" style="border-bottom: medium none;">dobrywebdev.pl</a>
+			</p>
 		</footer>
 	</main>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

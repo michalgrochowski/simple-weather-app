@@ -1,20 +1,27 @@
 @import '_mixins.scss';
 
 // Main Styles
+
 html {
     font-size: 10px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Raleway', sans-serif;
     line-height: 1.6;
 }
+
 body {
     box-sizing: border-box;
     font-size: 1.6rem;
-    color: #333;
+    color: #eee;
+    font-family: 'Raleway', sans-serif;
+    background-color: #3d5799;
 }
+
 // Header and nav
+
 .header {
     
 }
+
 .nav {
     @include flex-row;
     width: 100%;
@@ -22,37 +29,87 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
+    height: 8rem;
+    background-color: #1c2e5a;
 }
-.nav__logo {
-    align-self: flex-start;
-}
+
 .nav__list {
     @include flex-row;
     justify-content: flex-end;
     width: 100%;
+    @include mq-max(600px) {
+        @include flex-center-column;
+    }
 }
+
 .nav__item {
     font-size: 1.8rem;
-    margin: 1rem 1.5rem 1rem 1.5rem;
+    margin: 0.5rem 1rem;
     display: block;
+    &--title {
+        margin-right: auto;
+    }
 }
+
+.nav__title {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
 .nav__item:last-of-type {
     margin-right: 3rem;
 }
+
 .nav__link {
     color: #ffffff;
     text-decoration: none;
 }
+
+.nav__button {
+    cursor: pointer;
+    color: #eee;
+    background: none;
+    border: 1px solid #eee;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    transition: 0.3s all;
+    &:hover {
+        color: #1c2e5a;
+        background: #eee;
+        transition: 0.3s all;
+    }
+}
+
+.search-form {
+    @include flex-center-row;
+    @include mq-max(600px) {
+        @include flex-center-column;
+    }
+}
+
+.search-form__label {
+    margin-right: 2rem;
+}
+
+.search-form__input {
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    margin-right: 2rem;
+    border: none;
+}
+
+.search-form__button {
+    @extend .nav__button;
+}
+
 // Main layout
+
 .container {
     @include flex-center-column;
 }
-.container__title {
-    color: #333333;
-    margin-top: 5rem;
-}
+
 .section {
-    background-color: #ffffff;
+    margin-top: 8rem;
     @include flex-center-row;
     flex-wrap: wrap;
     @include mq-min(1201px) {
@@ -62,29 +119,81 @@ body {
         width: 100%;
     }
 }
+
 .section__title {
     flex-basis: 100%;
     text-align: center;
 }
 
+// Weather data
+
+.weather {
+    @include flex-center-row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.weather__data {
+    width: 30%;
+    border-radius: 1rem;
+    background-color: #5d85e2;
+    height: 5rem;
+    text-align: center;
+    margin: 2rem 1.5% 2rem 1.5%;
+}
+
+// Footer
+
+.footer {
+    @include flex-center-row;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 3rem;
+    color: #eee;
+    background-color: #1c2e5a;
+}
+
+.footer__copyright {
+    font-size: 1.2rem;
+}
+
+.footer__link {
+    color: #eee;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.footer__link:hover, .footer__link:focus {
+    color: #fff;
+    text-decoration: underline;
+    border-bottom: none;
+}
+
 // Misc items
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #ffffff;
+    color: #333333;
     text-indent: 1rem;
     padding: 1rem;
 }
+
 ::-moz-placeholder { /* Firefox 19+ */
-    color: #ffffff;
+    color: #333333;
     text-indent: 1rem;
     padding: 1rem;
 }
+
 :-ms-input-placeholder { /* IE 10+ */
-    color: #ffffff;
+    color: #333333;
     text-indent: 1rem;
     padding: 1rem;
 }
+
 :-moz-placeholder { /* Firefox 18- */
-    color: #ffffff;
+    color: #333333;
     text-indent: 1rem;
     padding: 1rem;
 }
