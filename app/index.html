@@ -45,13 +45,32 @@
 	<main class="container">
 		<section id="" class="section">  
 			<h2 class="section__title">Pogoda w twoim mieście to:</h2>
+			<p class="section__city" id="city">---</p>
 			<div class="weather">
-				<p class="weather__data" id="temperature">-</p>
-				<p class="weather__data" id="humidity">-</p>
-				<p class="weather__data" id="wind">-</p>
-				<p class="weather__data" id="pressure">-</p>
-				<p class="weather__data" id="rain">-</p>
-				<p class="weather__data" id="clouds">-</p>
+				<div class="weather__box">
+					<p class="weather__legend">Temperatura:</p>
+					<p class="weather__data" id="temperature">-</p>
+				</div>
+				<div class="weather__box">
+					<p class="weather__legend">Wilgotność:</p>
+					<p class="weather__data" id="humidity">-</p>
+				</div>
+				<div class="weather__box">
+					<p class="weather__legend">Wiatr:</p>
+					<p class="weather__data" id="wind">-</p>
+				</div>
+				<div class="weather__box">
+					<p class="weather__legend">Ciśnienie:</p>
+					<p class="weather__data" id="pressure">-</p>
+				</div>
+				<div class="weather__box">
+					<p class="weather__legend">Deszcz:</p>
+					<p class="weather__data" id="rain">-</p>
+				</div>
+				<div class="weather__box">
+					<p class="weather__legend">Zachmurzenie:</p>
+					<p class="weather__data" id="clouds">-</p>
+				</div>
 			</div>
 		</section>   
 		<footer id="footer" class="footer">

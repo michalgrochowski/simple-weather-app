@@ -125,6 +125,10 @@ body {
     text-align: center;
 }
 
+.section__city {
+    font-size: 2.7rem;
+}
+
 // Weather data
 
 .weather {
@@ -133,13 +137,25 @@ body {
     width: 100%;
 }
 
-.weather__data {
+.weather__box {
+    @include flex-center-column;
     width: 30%;
+    margin: 2rem 1.5% 2rem 1.5%;
+}
+
+.weather__legend {
+    font-weight: bold;
+    margin: 0;
+}
+
+.weather__data {
+    @include flex-center-row;
+    width: 100%;
     border-radius: 1rem;
     background-color: #5d85e2;
     height: 5rem;
     text-align: center;
-    margin: 2rem 1.5% 2rem 1.5%;
+    font-size: 1.8rem;
 }
 
 // Footer
