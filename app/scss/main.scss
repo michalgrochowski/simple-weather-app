@@ -4,7 +4,7 @@
 
 html {
     font-size: 10px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
 }
 
@@ -12,15 +12,10 @@ body {
     box-sizing: border-box;
     font-size: 1.6rem;
     color: #eee;
-    font-family: 'Raleway', sans-serif;
     background-color: #555555;
 }
 
 // Header and nav
-
-.header {
-    
-}
 
 .nav {
     @include flex-row;
@@ -32,7 +27,7 @@ body {
     height: 8rem;
     background-color: #333333;
     @include mq-max(600px) {
-        height: 12rem;
+        height: 10rem;
     }
 }
 
@@ -40,6 +35,7 @@ body {
     @include flex-row;
     justify-content: flex-end;
     width: 100%;
+    padding: 0;
     @include mq-max(600px) {
         @include flex-center-column;
     }
@@ -49,12 +45,17 @@ body {
     font-size: 1.8rem;
     margin: 0.5rem 1rem;
     display: block;
+    @include mq-max(600px) {
+        width: 90%;
+        margin: 0 5%;
+    }
     &--title {
         margin-right: auto;
     }
     &--buttons {
+        @include flex-center-row;
         @include mq-max(600px) {
-
+            margin-top: 1rem;
         }
     }
 }
@@ -65,10 +66,6 @@ body {
     @include mq-max(600px) {
         display: none;
     }
-}
-
-.nav__item:last-of-type {
-    margin-right: 3rem;
 }
 
 .nav__link {
@@ -84,6 +81,7 @@ body {
     padding: 0.4rem 1.5rem;
     border-radius: 2rem;
     transition: 0.3s all;
+    margin: 0 1rem;
     &:hover {
         color: #1c2e5a;
         background: #eee;
@@ -97,15 +95,20 @@ body {
 
 .search-form__label {
     margin-right: 2rem;
+    @include mq-max(600px) {
+        display: none;
+    }
 }
 
 .search-form__input {
     padding: 0.5rem 1.5rem;
     border-radius: 2rem;
     margin-right: 2rem;
+    margin-top: 0.3rem;
     border: none;
     @include mq-max(600px) {
-        width: 60%;
+        width: 90%;
+        margin: 0 5%;
     }
 }
 
@@ -187,13 +190,13 @@ body {
     left: 0;
     width: 100vw;
     max-width: 100vw;
-    min-height: 3rem;
+    min-height: 2rem;
     color: #eee;
     background-color: #333333;
 }
 
 .footer__copyright {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .footer__link {

@@ -21,7 +21,7 @@
             temperature.innerHTML = data.main.temp + "&deg; C";
             pressure.textContent = data.main.pressure + " hPa";
             humidity.textContent = data.main.humidity + " %";
-            wind.textContent = data.wind.speed + " m/h";
+            wind.textContent = data.wind.speed + " m/s";
             clouds.textContent = data.clouds.all + " %";
             windDir.textContent = data.wind.deg;
             city.textContent = data.name;
@@ -39,7 +39,7 @@
                 temperature.innerHTML = data.main.temp + "&deg; C";
                 pressure.textContent = data.main.pressure + " hPa";
                 humidity.textContent = data.main.humidity + " %";
-                wind.textContent = data.wind.speed + " m/h";
+                wind.textContent = data.wind.speed + " m/s";
                 clouds.textContent = data.clouds.all + " %";
                 windDir.textContent = data.wind.deg;
                 city.textContent = data.name;
