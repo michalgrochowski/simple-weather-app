@@ -13,7 +13,7 @@ body {
     font-size: 1.6rem;
     color: #eee;
     font-family: 'Raleway', sans-serif;
-    background-color: #3d5799;
+    background-color: #555555;
 }
 
 // Header and nav
@@ -30,7 +30,10 @@ body {
     left: 0;
     z-index: 1;
     height: 8rem;
-    background-color: #1c2e5a;
+    background-color: #333333;
+    @include mq-max(600px) {
+        height: 12rem;
+    }
 }
 
 .nav__list {
@@ -49,11 +52,19 @@ body {
     &--title {
         margin-right: auto;
     }
+    &--buttons {
+        @include mq-max(600px) {
+
+        }
+    }
 }
 
 .nav__title {
     font-size: 2.5rem;
     margin: 0;
+    @include mq-max(600px) {
+        display: none;
+    }
 }
 
 .nav__item:last-of-type {
@@ -70,7 +81,7 @@ body {
     color: #eee;
     background: none;
     border: 1px solid #eee;
-    padding: 0.5rem 1.5rem;
+    padding: 0.4rem 1.5rem;
     border-radius: 2rem;
     transition: 0.3s all;
     &:hover {
@@ -82,9 +93,6 @@ body {
 
 .search-form {
     @include flex-center-row;
-    @include mq-max(600px) {
-        @include flex-center-column;
-    }
 }
 
 .search-form__label {
@@ -96,10 +104,9 @@ body {
     border-radius: 2rem;
     margin-right: 2rem;
     border: none;
-}
-
-.search-form__button {
-    @extend .nav__button;
+    @include mq-max(600px) {
+        width: 60%;
+    }
 }
 
 // Main layout
@@ -110,8 +117,12 @@ body {
 
 .section {
     margin-top: 8rem;
+    margin-bottom: 3rem;
     @include flex-center-row;
     flex-wrap: wrap;
+    @include mq-max(600px) {
+        margin-top: 12rem;
+    }
     @include mq-min(1201px) {
         width: 117rem;
     }
@@ -127,6 +138,10 @@ body {
 
 .section__city {
     font-size: 2.7rem;
+    font-weight: bold;
+    @include mq-max(600px) {
+        font-size: 2.4rem;
+    }
 }
 
 // Weather data
@@ -141,6 +156,11 @@ body {
     @include flex-center-column;
     width: 30%;
     margin: 2rem 1.5% 2rem 1.5%;
+    @include mq-max(600px) {
+        @include flex-center-column;
+        width: 90%;
+        margin: 0.5rem 5% 0.5rem 5%;
+    }
 }
 
 .weather__legend {
@@ -152,7 +172,7 @@ body {
     @include flex-center-row;
     width: 100%;
     border-radius: 1rem;
-    background-color: #5d85e2;
+    background-color: #777777;
     height: 5rem;
     text-align: center;
     font-size: 1.8rem;
@@ -169,7 +189,7 @@ body {
     max-width: 100vw;
     min-height: 3rem;
     color: #eee;
-    background-color: #1c2e5a;
+    background-color: #333333;
 }
 
 .footer__copyright {
