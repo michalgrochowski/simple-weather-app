@@ -106,7 +106,9 @@ body {
   border-radius: 2rem;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
-  margin: 0 1rem; }
+  margin: 0 1rem;
+  font-size: 1.6rem;
+  height: 3rem; }
   .nav__button:hover {
     color: #1c2e5a;
     background: #eee;
@@ -136,6 +138,8 @@ body {
 
 .search-form__input {
   padding: 0.5rem 1.5rem;
+  height: 2rem;
+  width: 100%;
   border-radius: 2rem;
   margin-right: 2rem;
   margin-top: 0.3rem;

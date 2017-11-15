@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSS files -->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+	<!-- Page info -->
+	<title>Prosta aplikacja pogodowa</title>
+	<meta name="description" content="Prosta aplikacja pogodowa">
+	<meta name="keywords" content="prosta, aplikacja, pogodowa, pogoda, openweathermapapi">
+	<meta name="author" content="Michał Grochowski">
+</head>
+<body id="body" class=""> 
+	<header class="header">
+		<nav class="nav">
+			<ul class="nav__list">
+				<li class="nav__item nav__item--title">
+					<h1 class="nav__title">Sprawdź pogodę</h1>
+				</li>
+				<li class="nav__item">
+					<form class="search-form">
+						<label class="search-form__label" for="cityInput"> Miasto:</label>
+						<input class="search-form__input" type="text" id="cityInput" placeholder="Wpisz miasto">
+					</form>
+				</li>
+				<li class="nav__item nav__item--buttons">
+					<button class="nav__button" id="cityButton">Szukaj</button>
+					<button class="nav__button" id="locate">Znajdź</button>
+				</li>
+			</ul>
+		</nav> 
+	</header>
+	<main class="container">
+		<section id="" class="section">  
+			<h2 class="section__city" id="city">---</h2>
+			<div class="weather">
+				<div class="weather__box">
+					<p class="weather__legend">Temperatura:</p>
+					<p class="weather__data" id="temperature">---</p>
+				</div>
+				<div class="weather__box">
+					<p class="weather__legend">Wilgotność:</p>
+					<p class="weather__data" id="humidity">---</p>
+				</div>
+				<div class="weather__box">
+						<p class="weather__legend">Ciśnienie:</p>
+						<p class="weather__data" id="pressure">---</p>
+					</div>
+				<div class="weather__box">
+					<p class="weather__legend">Wiatr:</p>
+					<p class="weather__data" id="wind">---</p>
+				</div>
+				<div class="weather__box">
+					<p class="weather__legend">Kierunek wiatru:</p>
+					<p class="weather__data" id="windDir">---</p>
+				</div>
+				<div class="weather__box">
+					<p class="weather__legend">Zachmurzenie:</p>
+					<p class="weather__data" id="clouds">---</p>
+				</div>
+			</div>
+		</section>   
+		<footer id="footer" class="footer">
+			<p class="footer__copyright">
+				© 2017 Michał Grochowski - <a class="footer__link" href="http://dobrywebdev.pl" style="border-bottom: medium none;">dobrywebdev.pl</a>
+			</p>
+		</footer>
+	</main>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/main.min.js"></script>
+</body>
+</html>

@@ -45,13 +45,13 @@ gulp.task('useref', function(){
 });
 
 gulp.task('uglify', function() {
-    return gulp.src('dist/js/main.min.js')
+    return gulp.src('dist/js/main.js')
         .pipe(uglify())
         .pipe(gulp.dest('dist/js'))
 })
 
 gulp.task('cssmin', function() {
-    return gulp.src('dist/css/main.min.css')
+    return gulp.src('app/css/main.css')
         .pipe(cssmin())
         .pipe(gulp.dest('dist/css'))
 })
