@@ -1,4 +1,4 @@
-#Simple weather app
+# Simple weather app
 
 Simple weather app that uses data from OpenWeatherMap API (https://openweathermap.org/)
 
