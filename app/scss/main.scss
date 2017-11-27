@@ -28,6 +28,7 @@ body {
     @include mq-max(600px) {
         height: 10rem;
     }
+    background-color: #444444;
 }
 
 .nav__list {
@@ -153,20 +154,56 @@ body {
 // Weather data
 
 .weather {
-    @include flex-center-row;
+    @include flex-center-column;
     flex-wrap: wrap;
     width: 100%;
 }
 
 .weather__main {
     @include flex-center-row;
-    width: 50%;
+    width: 40%;
+    @include mq-max(600px) {
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 .weather__temp-box, .weather__icon-box {
     @include flex-center-row;
     width: 45%;
     margin: 0 2.5%;
+    @include mq-max(600px) {
+        width: 90%;
+        margin: 0 5%;
+    }
+}
+
+.weather__temp {
+    font-size: 5rem;
+    @include flex-center-row;
+}
+
+.weather__icon {
+    display: block;
+    font-size: 8rem;
+    &--mid {
+        font-size: 4rem;
+        margin-right: 2rem;
+    }
+    &--small {
+        font-size: 2rem;
+        margin-right: 1rem;
+    }
+}
+
+.weather__secondary {
+    @include flex-center-column;
+    margin-bottom: 3rem;
+}
+
+.weather__textbox {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.8rem;
 }
 
 // Footer
@@ -180,6 +217,7 @@ body {
     max-width: 100vw;
     min-height: 2rem;
     color: #eee;
+    background-color: #444444;
 }
 
 .footer__copyright {
