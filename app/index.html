@@ -40,14 +40,18 @@
 	</header>
 	<main class="container">
 		<section id="" class="section">  
-			<h2 class="section__city" id="city">Warszawa</h2>
+			<h2 class="section__city" id="city">---</h2>
 			<div class="weather">
 				<div class="weather__main">
 					<div class="weather__icon-box">
-						<span class="weather__icon wi wi-day-cloudy"></span>
+						<span id="mainIcon" class="weather__icon wi"></span>
 					</div>
 					<div class="weather__temp-box">
 						<p class="weather__temp"><span class="weather__icon--mid wi wi-thermometer"></span> <span id="temperature"> - </span> &deg; C</span></p>
+						<div class="weather__temp-secondary">
+							<p class="weather__temp-minmax">Min: <span id="tempMin" >-</span></p>
+							<p class="weather__temp-minmax">Max: <span id="tempMax" >-</span></p>
+						</div>
 					</div>
 				</div>
 				<div class="weather__secondary">
@@ -56,6 +60,7 @@
 					<p class="weather__textbox"><span class="weather__icon--small wi wi-barometer"></span>Ciśnienie: <span id="pressure">---</span></p>
 					<p class="weather__textbox"><span class="weather__icon--small wi wi-strong-wind"></span>Prędkość wiatru: <span id="wind">---</span></p>
 					<p class="weather__textbox"><span class="weather__icon--small wi wi-wind-direction"></span>Kierunek wiatru: <span id="windDir">---</span></p>
+					<p class="weather__textbox"><span class="weather__icon--small wi wi-raindrops"></span>Deszcz (ostatnie 3h): <span id="rain">---</span></p>
 				</div>
 			</div>
 		</section>   
