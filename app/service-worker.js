@@ -4,7 +4,7 @@ const URLS_TO_CACHE  = [
     "https://michalgrochowski.github.io/simple-weather-app/dist/index.html",
     "https://michalgrochowski.github.io/simple-weather-app/dist/manifest.json",
     "https://fonts.googleapis.com/css?family=Montserrat&amp;subset=latin-ext",
-    "https://michalgrochowski.github.io/simple-weather-app/dist/css/main.css",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/css/main.min.css",
     "https://michalgrochowski.github.io/simple-weather-app/dist/js/main.js",
     "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.eot",
     "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.svg",
