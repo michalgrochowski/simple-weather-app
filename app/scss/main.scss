@@ -25,10 +25,10 @@ body {
     left: 0;
     z-index: 1;
     height: 8rem;
+    background-color: #444444;
     @include mq-max(600px) {
         height: 10rem;
     }
-    background-color: #444444;
 }
 
 .nav__list {
@@ -45,12 +45,17 @@ body {
     font-size: 1.8rem;
     margin: 0.5rem 1rem;
     display: block;
+    background-color: #444444;
     @include mq-max(600px) {
         width: 90%;
         margin: 0 5%;
     }
     &--title {
         margin-right: auto;
+        @include mq-max(600px) {
+            width: 70%;
+            margin: 0 5%;
+        }
     }
     &--buttons {
         @include flex-center-row;
@@ -58,14 +63,16 @@ body {
             margin-top: 1rem;
         }
     }
+    &--hamburger {
+        align-self: flex-end;
+        width: 20%;
+    }
 }
 
 .nav__title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin: 0;
-    @include mq-max(600px) {
-        display: none;
-    }
+    margin-top: -0.5rem;
 }
 
 .nav__link {
@@ -89,6 +96,17 @@ body {
         background: #eee;
         transition: 0.3s all;
     }
+}
+
+.nav__icon {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    align-self: flex-end;
+    color: #eee;
+    cursor: pointer;
+    margin-top: 0.2rem;
 }
 
 .search-form {
@@ -128,7 +146,7 @@ body {
     @include flex-center-row;
     flex-wrap: wrap;
     @include mq-max(600px) {
-        margin-top: 12rem;
+        margin-top: 6rem;
     }
     @include mq-min(1201px) {
         width: 117rem;

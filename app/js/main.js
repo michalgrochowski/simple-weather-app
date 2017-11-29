@@ -24,6 +24,8 @@
     const LOCATE = document.getElementById("locate");
     const MAIN_ICON = document.getElementById("mainIcon");
     const WI_CLASS = new RegExp(/\bwi-.+\b/);
+    const HAMBURGER = document.getElementById("hamburger");
+    const MOBILE_MENU = document.getElementById("mobileMenu");
     // API link and key
     const API = "https://api.openweathermap.org/data/2.5/weather?";
     const KEY = "7c7fe6ea927aa8bfbd07cfce66100663";
@@ -31,7 +33,20 @@
     function getWeatherData(data) {
         let date = new Date();
         let currentTime = date.getHours();
-        if (currentTime >= 6 && currentTime <= 18 && data.clouds.all < "25") {;
+        if (data.clouds == undefined) {
+            TEMPERATURE.textContent = "-";
+            TEMP_MIN.textContent = "-";
+            TEMP_MAX.textContent = "-";
+            PRESSURE.textContent = "---";
+            HUMIDITY.textContent = "---";
+            WIND.textContent = "---";
+            CLOUDS.textContent = "---";
+            WIND_DIR.textContent = "---";
+            CITY.textContent = "Nie znaleziono miasta!";
+            RAIN.textContent = "---";
+            MAIN_ICON.classList.add("wi-na");
+        }
+        else if (currentTime >= 6 && currentTime <= 18 && data.clouds.all < "25") {;
             MAIN_ICON.classList.add("wi-day-sunny");
         } else if (currentTime >= 18 && currentTime <= 6 && data.clouds.all < "25") {
             MAIN_ICON.classList.add("wi-night-clear");
@@ -76,7 +91,7 @@
         })
     });
     // getWeatherData on geolocation
-    locate.addEventListener("click", function() {
+    LOCATE.addEventListener("click", function() {
         if (MAIN_ICON.className.match(WI_CLASS)) {
             MAIN_ICON.className = MAIN_ICON.className.replace(WI_CLASS, '')
         }
@@ -91,4 +106,15 @@
             })
         });
     });
+    HAMBURGER.addEventListener("click", function() {
+        MOBILE_MENU.classList.toggle("nav__item--mobile-menu--open")
+        if (HAMBURGER.classList.contains("icon-menu")) {
+            HAMBURGER.classList.remove("icon-menu");
+            HAMBURGER.classList.add("icon-cancel")
+
+        } else if (HAMBURGER.classList.contains("icon-cancel")) {
+            HAMBURGER.classList.add("icon-menu")
+            HAMBURGER.classList.remove("icon-cancel");
+        }
+    })
 })();
