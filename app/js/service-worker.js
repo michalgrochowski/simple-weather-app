@@ -1,5 +1,5 @@
-const STATIC_CACHE_NAME = "simple-weather-v1";
-const BASE_STATIC_URLS = [
+const CACHE_NAME = "simple-weather-v1";
+const URLS_TO_CACHE  = [
     "/",
     "/index.html",
     "/manifest.json",
@@ -13,23 +13,14 @@ const BASE_STATIC_URLS = [
     "/font/weathericons-regular-webfont.woff2"
 ];
 
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(STATIC_CACHE_NAME).then(cache => {
-      cache.addAll([
-        "/android-chrome-36x36.png",
-        "/android-chrome-48x48.png",
-        "/android-chrome-72x72.png",
-        "/android-chrome-96x96.png",
-        "/android-chrome-144x144.png",
-        "/android-chrome-192x192.png",
-        "/android-chrome-256x256.png",
-        "/android-chrome-384x384.png",
-        "/android-chrome-512x512.png"
-      ]);
-      return cache.addAll(STATIC_URLS);
-    }).then(() => self.skipWaiting())
-  );
+self.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+        .then(function(cache) {
+            console.log('Opened cache');
+            return cache.addAll(URLS_TO_CACHE);
+        })
+    );
 });
 
 self.addEventListener("activate", event => {
@@ -37,16 +28,34 @@ self.addEventListener("activate", event => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames
-          .filter(name => name.includes("simple-weather") && name !== STATIC_CACHE_NAME)
+          .filter(name => name.includes("simple-weather") && name !== CACHE_NAME)
           .map(name => caches.delete(name))
       )
     }).then(() => self.clients.claim())
   );
 });
 
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-  );
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request)
+            .then(function(response) {
+            if (response) {
+                return response;
+            }
+            var fetchRequest = event.request.clone();
+            return fetch(fetchRequest).then(
+            function(response) {
+                if(!response || response.status !== 200 || response.type !== 'basic') {
+                    return response;
+            }
+            var responseToCache = response.clone();
+            caches.open(CACHE_NAME)
+                .then(function(cache) {
+                        cache.put(event.request, responseToCache);
+                    });
+                    return response;
+                }
+            );
+        })
+    );
 });
