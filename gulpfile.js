@@ -112,6 +112,11 @@ gulp.task('manifest', function(){
         .pipe(gulp.dest('dist'))
 });
 
+gulp.task('serviceWorker', function(){
+    return gulp.src('app/js/service-worker.js')
+        .pipe(gulp.dest('dist/js'))
+});
+
 gulp.task('clean:dist', function(){
     return del.sync('dist');
 });
@@ -121,5 +126,5 @@ gulp.task('default', function(){
 });
 
 gulp.task('build', function(){
-    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico'], 'cssmin')
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'cssmin')
 });
