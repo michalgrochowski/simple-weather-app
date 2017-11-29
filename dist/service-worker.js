@@ -1,16 +1,16 @@
 const CACHE_NAME = "simple-weather-v1";
 const URLS_TO_CACHE  = [
-    "/",
-    "/index.html",
-    "/manifest.json",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/index.html",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/manifest.json",
     "https://fonts.googleapis.com/css?family=Montserrat&amp;subset=latin-ext",
-    "/css/main.css",
-    "/js/main.js",
-    "/font/weathericons-regular-webfont.eot",
-    "/font/weathericons-regular-webfont.svg",
-    "/font/weathericons-regular-webfont.ttf",
-    "/font/weathericons-regular-webfont.woff",
-    "/font/weathericons-regular-webfont.woff2"
+    "https://michalgrochowski.github.io/simple-weather-app/dist/css/main.css",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/js/main.js",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.eot",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.svg",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.ttf",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.woff",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.woff2"
 ];
 
 self.addEventListener('install', function(event) {
