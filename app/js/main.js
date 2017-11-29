@@ -14,14 +14,16 @@
     const cityButton = document.getElementById("cityButton");
     const locate = document.getElementById("locate");
     const mainIcon = document.getElementById("mainIcon");
-    const wiClass = new RegExp(/^wi-.+$/);
+    const wiClass = new RegExp(/\bwi-.+\b/);
     // API link and key
     const api = "https://api.openweathermap.org/data/2.5/weather?";
     const key = "7c7fe6ea927aa8bfbd07cfce66100663";
     // Function that displays current weather based on user provided localisation
     cityButton.addEventListener("click", function() {
-        if (mainIcon.classList.contains(new RegExp(/^wi-.+$/))) {
-            console.log("Ikonka zawiera wi-");
+        if (mainIcon.className.match(wiClass)) {
+            mainIcon.className = mainIcon.className.replace(wiClass, '')
+        } else {
+            return;
         }
         fetch(api + "q=" + cityInput.value + "&APPID=" + key + "&units=metric")
         .then((resp) => resp.json())
@@ -54,6 +56,8 @@
             city.textContent = data.name;
             if (data.rain !== undefined) {
                 rain.textContent = data.rain + " %";
+            } else {
+                rain.textContent = "b/d";
             }
         })
         .catch(function(error) {
@@ -62,8 +66,10 @@
     });
     // Function that displays current weather based on user geolocation
     locate.addEventListener("click", function() {
-        if (mainIcon.classList.contains(wiClass)) {
-            console.log("Ikonka zawiera wi-");
+        if (mainIcon.className.match(wiClass)) {
+            mainIcon.className = mainIcon.className.replace(wiClass, '')
+        } else {
+            return;
         }
         navigator.geolocation.getCurrentPosition(function(position) {
             fetch(api + "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&APPID=" + key + "&units=metric")
@@ -97,6 +103,8 @@
                 city.textContent = data.name;
                 if (data.rain !== undefined) {
                     rain.textContent = data.rain + " %";
+                } else {
+                    rain.textContent = "b/d";
                 }
             })
             .catch(function(error) {

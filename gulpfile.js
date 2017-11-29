@@ -87,6 +87,31 @@ gulp.task('json', function(){
         .pipe(gulp.dest('dist/json'))
 });
 
+gulp.task('favicons', function(){
+    return gulp.src('app/*.png')
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('ico', function(){
+    return gulp.src('app/*.ico')
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('xml', function(){
+    return gulp.src('app/*.xml')
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('favicon-svg', function(){
+    return gulp.src('app/*.svg')
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('manifest', function(){
+    return gulp.src('app/manifest.json')
+        .pipe(gulp.dest('dist'))
+});
+
 gulp.task('clean:dist', function(){
     return del.sync('dist');
 });
@@ -96,5 +121,5 @@ gulp.task('default', function(){
 });
 
 gulp.task('build', function(){
-    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form'], 'cssmin')
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico'], 'cssmin')
 });
