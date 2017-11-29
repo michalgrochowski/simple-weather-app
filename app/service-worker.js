@@ -1,16 +1,16 @@
 const CACHE_NAME = "simple-weather-v1";
 const URLS_TO_CACHE  = [
-    "/simple-weather-app/app/",
-    "/simple-weather-app/app/index.html",
-    "/simple-weather-app/app/manifest.json",
+    "/",
+    "/index.html",
+    "/manifest.json",
     "https://fonts.googleapis.com/css?family=Montserrat&amp;subset=latin-ext",
-    "/simple-weather-app/app/css/main.min.css",
-    "/simple-weather-app/app/js/main.js",
-    "/simple-weather-app/app/font/weathericons-regular-webfont",
-    "/simple-weather-app/app/font/weathericons-regular-webfont.svg",
-    "/simple-weather-app/app/font/weathericons-regular-webfont.ttf",
-    "/simple-weather-app/app/font/weathericons-regular-webfont.woff",
-    "/simple-weather-app/app/font/weathericons-regular-webfont.woff2"
+    "/css/main.css",
+    "/js/main.js",
+    "/font/weathericons-regular-webfont.eot",
+    "/font/weathericons-regular-webfont.svg",
+    "/font/weathericons-regular-webfont.ttf",
+    "/font/weathericons-regular-webfont.woff",
+    "/font/weathericons-regular-webfont.woff2"
 ];
 
 self.addEventListener('install', function(event) {

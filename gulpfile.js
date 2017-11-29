@@ -113,8 +113,8 @@ gulp.task('manifest', function(){
 });
 
 gulp.task('serviceWorker', function(){
-    return gulp.src('app/js/service-worker.js')
-        .pipe(gulp.dest('dist/js'))
+    return gulp.src('app/service-worker.js')
+        .pipe(gulp.dest('dist'))
 });
 
 gulp.task('clean:dist', function(){
