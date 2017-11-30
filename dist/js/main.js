@@ -107,6 +107,10 @@
         .catch(function(error) {
             console.log("Wystąpił błąd: " + error);
         })
+        HAMBURGER.classList.add("icon-menu");
+        HAMBURGER.classList.remove("icon-cancel");
+        FIRST_DROPDOWN.classList.remove("nav__item--dropdown-first--open");
+        SECOND_DROPDOWN.classList.remove("nav__item--dropdown-second--open");
     });
     // getWeatherData on geolocation
     LOCATE.addEventListener("click", function() {
@@ -114,6 +118,10 @@
             MAIN_ICON.className = MAIN_ICON.className.replace(WI_CLASS, '')
         }
         geoLocationWeather();
+        HAMBURGER.classList.add("icon-menu");
+        HAMBURGER.classList.remove("icon-cancel");
+        FIRST_DROPDOWN.classList.remove("nav__item--dropdown-first--open");
+        SECOND_DROPDOWN.classList.remove("nav__item--dropdown-second--open");
     });
     // Button that expands mobile menu
     HAMBURGER.addEventListener("click", function() {

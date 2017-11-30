@@ -175,7 +175,7 @@ body {
 
 .search-form__input {
     padding: 0.5rem 1.5rem;
-    height: 2rem;
+    min-height: 2rem;
     width: 100%;
     border-radius: 2rem;
     margin-right: 2rem;
@@ -184,6 +184,7 @@ body {
     @include mq-max(600px) {
         width: 90%;
         margin: 0 5%;
+        min-height: 2.5rem;
     }
 }
 
