@@ -1,8 +1,9 @@
 (function(){
+    // Service worker registeration
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
         .then(function(registration) {
-            console.log('Registration successful, scope is:', registration.scope);
+            console.log('Service worker registration done, scope is:', registration.scope);
         })
         .catch(function(error) {
             console.log('Service worker registration failed, error:', error);
@@ -30,7 +31,7 @@
     // API link and key
     const API = "https://api.openweathermap.org/data/2.5/weather?";
     const KEY = "7c7fe6ea927aa8bfbd07cfce66100663";
-    // Function that displays current weather based on user provided localisation
+    // Function that displays current weather based on user provided city name
     function getWeatherData(data) {
         let date = new Date();
         let currentTime = date.getHours();
@@ -46,8 +47,7 @@
             CITY.textContent = "Nie znaleziono miasta!";
             RAIN.textContent = "---";
             MAIN_ICON.classList.add("wi-na");
-        }
-        else if (currentTime >= 6 && currentTime <= 18 && data.clouds.all < "25") {;
+        } else if (currentTime >= 6 && currentTime <= 18 && data.clouds.all < "25") {;
             MAIN_ICON.classList.add("wi-day-sunny");
         } else if (currentTime >= 18 && currentTime <= 6 && data.clouds.all < "25") {
             MAIN_ICON.classList.add("wi-night-clear");
@@ -77,6 +77,7 @@
             RAIN.textContent = "b/d";
         }
     }
+    // Function that displays current weather based on user GPS localisation
     function geoLocationWeather() {
         navigator.geolocation.getCurrentPosition(function(position) {
             fetch(API + "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&APPID=" + KEY + "&units=metric")
@@ -85,7 +86,7 @@
                 getWeatherData(data);
             })
             .catch(function(error) {
-                console.log(error);
+                console.log("Wystąpił błąd: " + error);
             })
         });
     }
@@ -104,7 +105,7 @@
             getWeatherData(data);
         })
         .catch(function(error) {
-            console.log(error);
+            console.log("Wystąpił błąd: " + error);
         })
     });
     // getWeatherData on geolocation

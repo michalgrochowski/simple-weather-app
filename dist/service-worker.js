@@ -10,7 +10,12 @@ const URLS_TO_CACHE  = [
     "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.svg",
     "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.ttf",
     "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.woff",
-    "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.woff2"
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/weathericons-regular-webfont.woff2",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/fontello.eot",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/fontello.svg",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/fontello.ttf",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/fontello.woff",
+    "https://michalgrochowski.github.io/simple-weather-app/dist/font/fontello.woff2"
 ];
 
 self.addEventListener('install', function(event) {

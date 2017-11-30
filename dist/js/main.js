@@ -1,8 +1,9 @@
 (function(){
+    // Service worker registeration
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
         .then(function(registration) {
-            console.log('Registration successful, scope is:', registration.scope);
+            console.log('Service worker registration done, scope is:', registration.scope);
         })
         .catch(function(error) {
             console.log('Service worker registration failed, error:', error);
@@ -24,14 +25,29 @@
     const LOCATE = document.getElementById("locate");
     const MAIN_ICON = document.getElementById("mainIcon");
     const WI_CLASS = new RegExp(/\bwi-.+\b/);
+    const HAMBURGER = document.getElementById("hamburger");
+    const FIRST_DROPDOWN = document.getElementById("firstDropdown");
+    const SECOND_DROPDOWN = document.getElementById("secondDropdown");
     // API link and key
     const API = "https://api.openweathermap.org/data/2.5/weather?";
     const KEY = "7c7fe6ea927aa8bfbd07cfce66100663";
-    // Function that displays current weather based on user provided localisation
+    // Function that displays current weather based on user provided city name
     function getWeatherData(data) {
         let date = new Date();
         let currentTime = date.getHours();
-        if (currentTime >= 6 && currentTime <= 18 && data.clouds.all < "25") {;
+        if (data.clouds == undefined) {
+            TEMPERATURE.textContent = "-";
+            TEMP_MIN.textContent = "-";
+            TEMP_MAX.textContent = "-";
+            PRESSURE.textContent = "---";
+            HUMIDITY.textContent = "---";
+            WIND.textContent = "---";
+            CLOUDS.textContent = "---";
+            WIND_DIR.textContent = "---";
+            CITY.textContent = "Nie znaleziono miasta!";
+            RAIN.textContent = "---";
+            MAIN_ICON.classList.add("wi-na");
+        } else if (currentTime >= 6 && currentTime <= 18 && data.clouds.all < "25") {;
             MAIN_ICON.classList.add("wi-day-sunny");
         } else if (currentTime >= 18 && currentTime <= 6 && data.clouds.all < "25") {
             MAIN_ICON.classList.add("wi-night-clear");
@@ -61,6 +77,23 @@
             RAIN.textContent = "b/d";
         }
     }
+    // Function that displays current weather based on user GPS localisation
+    function geoLocationWeather() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            fetch(API + "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&APPID=" + KEY + "&units=metric")
+            .then((resp) => resp.json())
+            .then((data) => {
+                getWeatherData(data);
+            })
+            .catch(function(error) {
+                console.log("Wystąpił błąd: " + error);
+            })
+        });
+    }
+    // getWeatherData on DOMContentLoaded
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        geoLocationWeather();
+    });
     // getWeatherData on click
     CITY_BUTTON.addEventListener("click", function() {
         if (MAIN_ICON.className.match(WI_CLASS)) {
@@ -72,23 +105,28 @@
             getWeatherData(data);
         })
         .catch(function(error) {
-            console.log(error);
+            console.log("Wystąpił błąd: " + error);
         })
     });
     // getWeatherData on geolocation
-    locate.addEventListener("click", function() {
+    LOCATE.addEventListener("click", function() {
         if (MAIN_ICON.className.match(WI_CLASS)) {
             MAIN_ICON.className = MAIN_ICON.className.replace(WI_CLASS, '')
         }
-        navigator.geolocation.getCurrentPosition(function(position) {
-            fetch(API + "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&APPID=" + KEY + "&units=metric")
-            .then((resp) => resp.json())
-            .then((data) => {
-                getWeatherData(data);
-            })
-            .catch(function(error) {
-                console.log(error);
-            })
-        });
+        geoLocationWeather();
     });
+    // Button that expands mobile menu
+    HAMBURGER.addEventListener("click", function() {
+        if (HAMBURGER.classList.contains("icon-menu")) {
+            HAMBURGER.classList.remove("icon-menu");
+            HAMBURGER.classList.add("icon-cancel")
+            FIRST_DROPDOWN.classList.add("nav__item--dropdown-first--open");
+            SECOND_DROPDOWN.classList.add("nav__item--dropdown-second--open");
+        } else if (HAMBURGER.classList.contains("icon-cancel")) {
+            HAMBURGER.classList.add("icon-menu")
+            HAMBURGER.classList.remove("icon-cancel");
+            FIRST_DROPDOWN.classList.remove("nav__item--dropdown-first--open");
+            SECOND_DROPDOWN.classList.remove("nav__item--dropdown-second--open");
+        }
+    })
 })();

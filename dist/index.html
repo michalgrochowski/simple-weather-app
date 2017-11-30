@@ -31,18 +31,21 @@
 				<li class="nav__item nav__item--title">
 					<h1 class="nav__title">Pogoda</h1>
 				</li>
-				<li class="nav__item">
+				<li id="firstDropdown" class="nav__item nav__item--dropdown-first">
 					<form class="search-form">
 						<label class="search-form__label" for="cityInput"> Miasto:</label>
 						<input class="search-form__input" type="text" id="cityInput" placeholder="Wpisz miasto">
 					</form>
 				</li>
-				<li class="nav__item nav__item--buttons">
+				<li id="secondDropdown" class="nav__item nav__item--dropdown-second nav__item--buttons">
 					<button class="nav__button" id="cityButton">Szukaj</button>
-					<button class="nav__button" id="locate">Znajdź</button>
+					<button class="nav__button" id="locate">Lokalizuj</button>
+				</li>
+				<li class="nav__item nav__item--hamburger">
+					<button id="hamburger" class="nav__hamburger icon-menu"></button>
 				</li>
 			</ul>
-		</nav> 
+		</nav>
 	</header>
 	<main class="container">
 		<section id="" class="section">  
@@ -76,7 +79,6 @@
 			</p>
 		</footer>
 	</main>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
