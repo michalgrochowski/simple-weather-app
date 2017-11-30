@@ -23,11 +23,11 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 3;
     height: 8rem;
     background-color: #444444;
-    @include mq-max(600px) {
-        height: 10rem;
+    @include mq-max(720px) {
+        height: 6rem;
     }
 }
 
@@ -36,7 +36,9 @@ body {
     justify-content: flex-end;
     width: 100%;
     padding: 0;
-    @include mq-max(600px) {
+    position: relative;
+    z-index: 2;
+    @include mq-max(720px) {
         @include flex-center-column;
     }
 }
@@ -46,27 +48,78 @@ body {
     margin: 0.5rem 1rem;
     display: block;
     background-color: #444444;
-    @include mq-max(600px) {
+    z-index: 1;
+    @include mq-max(720px) {
         width: 90%;
         margin: 0 5%;
     }
     &--title {
         margin-right: auto;
-        @include mq-max(600px) {
-            width: 70%;
-            margin: 0 5%;
+        @include mq-max(720px) {
+            width: 50%;
+            margin-right: auto;
         }
     }
     &--buttons {
         @include flex-center-row;
-        @include mq-max(600px) {
+        @include mq-max(720px) {
             margin-top: 1rem;
         }
     }
-    &--hamburger {
-        align-self: flex-end;
-        width: 20%;
+    &--dropdown-first {
+        @include mq-max(720px) {
+            height: 6rem;
+            position: absolute;
+            top: -10rem;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            padding-top: 1rem;
+            transition: 0.3s all;
+            opacity: 0;
+            &--open {
+                top: 4rem;
+                opacity: 1;
+            }
+        }
     }
+    &--dropdown-second {
+        @include mq-max(720px) {
+            height: 4rem;
+            position: absolute;
+            top: -10rem;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            padding: 0 0 1rem 0;
+            transition: 0.3s all;
+            opacity: 0;
+            &--open {
+                top: 10rem;
+                opacity: 1;
+            }
+        }
+    }
+    &--hamburger {
+        display: none;
+        background: transparent;
+        @include mq-max(720px) {
+            display: block;
+            font-size: 3rem;
+            position: absolute;
+            top: -1rem;
+            right: 0;
+            width: 20%;
+            z-index: 2
+        }
+    }
+}
+
+.nav__hamburger {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #eee;
 }
 
 .nav__title {

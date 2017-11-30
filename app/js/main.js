@@ -25,7 +25,8 @@
     const MAIN_ICON = document.getElementById("mainIcon");
     const WI_CLASS = new RegExp(/\bwi-.+\b/);
     const HAMBURGER = document.getElementById("hamburger");
-    const MOBILE_MENU = document.getElementById("mobileMenu");
+    const FIRST_DROPDOWN = document.getElementById("firstDropdown");
+    const SECOND_DROPDOWN = document.getElementById("secondDropdown");
     // API link and key
     const API = "https://api.openweathermap.org/data/2.5/weather?";
     const KEY = "7c7fe6ea927aa8bfbd07cfce66100663";
@@ -76,6 +77,22 @@
             RAIN.textContent = "b/d";
         }
     }
+    function geoLocationWeather() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            fetch(API + "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&APPID=" + KEY + "&units=metric")
+            .then((resp) => resp.json())
+            .then((data) => {
+                getWeatherData(data);
+            })
+            .catch(function(error) {
+                console.log(error);
+            })
+        });
+    }
+    // getWeatherData on DOMContentLoaded
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        geoLocationWeather();
+    });
     // getWeatherData on click
     CITY_BUTTON.addEventListener("click", function() {
         if (MAIN_ICON.className.match(WI_CLASS)) {
@@ -95,26 +112,20 @@
         if (MAIN_ICON.className.match(WI_CLASS)) {
             MAIN_ICON.className = MAIN_ICON.className.replace(WI_CLASS, '')
         }
-        navigator.geolocation.getCurrentPosition(function(position) {
-            fetch(API + "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&APPID=" + KEY + "&units=metric")
-            .then((resp) => resp.json())
-            .then((data) => {
-                getWeatherData(data);
-            })
-            .catch(function(error) {
-                console.log(error);
-            })
-        });
+        geoLocationWeather();
     });
+    // Button that expands mobile menu
     HAMBURGER.addEventListener("click", function() {
-        MOBILE_MENU.classList.toggle("nav__item--mobile-menu--open")
         if (HAMBURGER.classList.contains("icon-menu")) {
             HAMBURGER.classList.remove("icon-menu");
             HAMBURGER.classList.add("icon-cancel")
-
+            FIRST_DROPDOWN.classList.add("nav__item--dropdown-first--open");
+            SECOND_DROPDOWN.classList.add("nav__item--dropdown-second--open");
         } else if (HAMBURGER.classList.contains("icon-cancel")) {
             HAMBURGER.classList.add("icon-menu")
             HAMBURGER.classList.remove("icon-cancel");
+            FIRST_DROPDOWN.classList.remove("nav__item--dropdown-first--open");
+            SECOND_DROPDOWN.classList.remove("nav__item--dropdown-second--open");
         }
     })
 })();
