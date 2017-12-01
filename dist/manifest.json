@@ -2,7 +2,7 @@
     "name": "Simple Weather",
     "short_name": "Weather",
     "description": "Ta aplikacja pokazuje aktualna pogodę.",
-    "start_url": "https://michalgrochowski.github.io/simple-weather-app/dist/index.html",
+    "start_url": "/index.html",
     "icons": [
         {
             "src": "https://michalgrochowski.github.io/simple-weather-app/dist/android-chrome-36x36.png",
