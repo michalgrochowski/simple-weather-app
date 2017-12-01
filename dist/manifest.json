@@ -1,5 +1,8 @@
 {
     "name": "Simple Weather",
+    "short_name": "Weather",
+    "description": "Ta aplikacja pokazuje aktualna pogodę.",
+    "start_url": "https://michalgrochowski.github.io/simple-weather-app/dist/index.html",
     "icons": [
         {
             "src": "https://michalgrochowski.github.io/simple-weather-app/dist/android-chrome-36x36.png",
@@ -48,8 +51,9 @@
         }
     ],
     "theme_color": "#555555",
-    "short_name": "Weather",
     "background_color": "#555555",
     "display": "standalone",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "lang": "pl",
+    "dir": "ltr"
 }
